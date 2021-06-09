@@ -1,0 +1,71 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    padding: 50px;
+    margin: 5px;
+    text-align: center;
+    font-size: larger;
+    background-image: radial-gradient(circle at 25% 54%, rgba(18, 18, 18,0.06) 0%, rgba(18, 18, 18,0.06) 22%,transparent 22%, transparent 100%),radial-gradient(circle at 67% 98%, rgba(223, 223, 223,0.06) 0%, rgba(223, 223, 223,0.06) 52%,transparent 52%, transparent 100%),radial-gradient(circle at 7% 92%, rgba(169, 169, 169,0.06) 0%, rgba(169, 169, 169,0.06) 52%,transparent 52%, transparent 100%),radial-gradient(circle at 46% 37%, rgba(187, 187, 187,0.06) 0%, rgba(187, 187, 187,0.06) 47%,transparent 47%, transparent 100%),radial-gradient(circle at 38% 35%, rgba(57, 57, 57,0.06) 0%, rgba(57, 57, 57,0.06) 99%,transparent 99%, transparent 100%),radial-gradient(circle at 46% 86%, rgba(100, 100, 100,0.06) 0%, rgba(100, 100, 100,0.06) 60%,transparent 60%, transparent 100%),linear-gradient(90deg, rgb(57, 8, 200),rgb(240, 145, 202));
+    background-repeat: no-repeat;background-size: cover;
+}
+header{
+    font-size: 350%;
+    font-family: 'Rimouski';
+    src: url('rimouski_sb-webfont.woff2') format('woff2'),
+         url('rimouski_sb-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+input[type="text"]{
+    border-radius: 10px ;
+    margin-top: 30px;
+    background-color: rgba(255,255,255,0.6);
+    font-size: 100%;
+    width: 350px;height: 50%;
+}
+.search:hover{background-color: cadetblue;}
+button{
+    size: 90%;
+    margin-left: 5px;
+    height: 1000%;width: 80px;
+    border-radius: 8px;
+    padding: 4.5px;
+    font-size: 100%;
+    transition-duration: 0.4s;
+}
+.button:hover{background-color: rgb(226, 90, 57);}
+#city{
+    font-size: 150%;
+    font-family: cursive;
+}
+#date{
+    font-size: 120% ;
+}
+
+#name{
+    font-family:'Merienda';
+    font-size: x-large;
+}
+
+#description{
+    margin-left: 120px;
+}
+.maindiv{
+    display:grid;        
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
+    grid-gap: 2px;
+            
+            margin: 10px;padding: 5px;
+            border: 2px solid black;
+            box-sizing: border-box;
+            
+
+}
+.dat{
+    display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-gap: 2px;text-align: center;margin-left: 10%;
+}
+.temp{
+    display: flex;flex-wrap: wrap;
+    text-align: center;font-size: 140%;align-content: center;justify-content: center;
+}
