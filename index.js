@@ -55,7 +55,7 @@ window.addEventListener("load",()=>{
         lat=position.coords.latitude;
         
 
-        fetch('http://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely,hourly&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
+        fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely,hourly&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
         .then(response =>response.json())
         .then(data =>{console.log(data)
         var des=data.current.weather[0].description;
@@ -118,7 +118,7 @@ window.addEventListener("load",()=>{
         document.getElementById("imgs").src="http://openweathermap.org/img/wn/"+iconid+"@2x.png";
 
 
-        fetch('http://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
+        fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
         .then(response =>response.json())
         .then(data =>{console.log(data)
             var ct=data.name;city.textContent=ct;
@@ -128,7 +128,7 @@ window.addEventListener("load",()=>{
 
 
 document.getElementById('btn').addEventListener("click",function(){
-   fetch('http://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
+   fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
    .then(response =>response.json())
    .then(data =>{console.log(data)
     
@@ -139,7 +139,7 @@ document.getElementById('btn').addEventListener("click",function(){
     
    
    tem.textContent=temp+" °C";
-   fetch('http://api.openweathermap.org/data/2.5/onecall?lat='+lt+'&lon='+ln+'&exclude=minutely,hourly&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
+   fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lt+'&lon='+ln+'&exclude=minutely,hourly&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
    .then(response =>response.json())
    .then(data =>{console.log(data)
 
