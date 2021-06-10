@@ -8,7 +8,7 @@ body{
     background-repeat: no-repeat;background-size: cover;
 }
 header{
-    font-size: 350%;
+    font-size: 348%;
     font-family: 'Rimouski';
     src: url('rimouski_sb-webfont.woff2') format('woff2'),
          url('rimouski_sb-webfont.woff') format('woff');
