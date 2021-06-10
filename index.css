@@ -1,6 +1,6 @@
 body{
     font-family: 'Times New Roman', Times, serif;
-    padding: 50px;
+   
     margin: 5px;
     text-align: center;
     font-size: larger;
@@ -50,7 +50,8 @@ button{
     margin-left: 120px;
 }
 .maindiv{
-    display:grid;        
+    display:grid;
+    overflow:auto;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr ;
     grid-gap: 2px;
             
