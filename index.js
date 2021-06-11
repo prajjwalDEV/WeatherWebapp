@@ -47,7 +47,7 @@ var ds7=document.querySelector('#ds7')
 var ln,lt,iconid;
 
 window.addEventListener("load",()=>{
-   
+    alert("Kindly allow location access to get weather data of current location or switch it ON manually")
 
     if(navigator.geolocation){var lon;var lat;
         navigator.geolocation.getCurrentPosition(position=>{
