@@ -46,9 +46,7 @@ button{
     font-size: x-large;
 }
 
-#description{
-    margin-left: 120px;
-}
+
 .maindiv{
     display:grid;
     overflow:auto;
