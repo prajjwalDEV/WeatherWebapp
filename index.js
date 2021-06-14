@@ -44,16 +44,18 @@ var ds5=document.querySelector('#ds5')
 var ds6=document.querySelector('#ds6')
 var ds7=document.querySelector('#ds7')
 
-var ln,lt,iconid;
+var ln,lt,iconid;let lon=null;let lat=null;
 
 window.addEventListener("load",()=>{
-    alert("Kindly allow location access to get weather data of current location or switch it ON manually")
-
-    if(navigator.geolocation){var lon;var lat;
+    alert("Kindly allow location access to get weather data of current location or switch it ON manually otherwise it will show data of default location i.e. Delhi  ")
+   
+    
+    if(navigator.geolocation){
         navigator.geolocation.getCurrentPosition(position=>{
         lon=position.coords.longitude;
         lat=position.coords.latitude;
         
+       if(lat!=null&&lon!=null){
 
         fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely,hourly&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
         .then(response =>response.json())
@@ -114,8 +116,13 @@ window.addEventListener("load",()=>{
         ds6.textContent=data.daily[6].weather[0].description.toUpperCase();
         ds7.textContent=data.daily[7].weather[0].description.toUpperCase();
 
+          
+
         iconid=data.current.weather[0].icon;
-        document.getElementById("imgs").src="http://openweathermap.org/img/wn/"+iconid+"@2x.png";
+        document.getElementById("imgs").src="https://openweathermap.org/img/wn/"+iconid+"@2x.png";
+        
+      
+
 
 
         fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
@@ -124,10 +131,91 @@ window.addEventListener("load",()=>{
             var ct=data.name;city.textContent=ct;
             temp.textContent=data.main.temp+" °C"})
     })
-   })}})
+    
+    }
+    
+})} 
+if (lat==null) {
+    lat=28.6667;
+    lon=77.2167;
+    fetch('https://api.openweathermap.org/data/2.5/onecall?lat='+lat+'&lon='+lon+'&exclude=minutely,hourly&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
+    .then(response =>response.json())
+    .then(data =>{console.log(data)
+    var des=data.current.weather[0].description;
+    desc.textContent=des.toUpperCase();
+    feel.textContent=data.current.feels_like+" °C";
+    hum.textContent=data.current.humidity+"%";
+    wdf.textContent=data.current.wind_speed+"m/s";
+
+    var a=(new Date(data.current.dt*1000-(data.timezone_offset*1000)));
+    a=a.toDateString();date.textContent=a;
+
+    a=(new Date(data.daily[1].dt*1000-(data.timezone_offset*1000)));
+    dt1.textContent=a.toDateString();
+    a=(new Date(data.daily[2].dt*1000-(data.timezone_offset*1000)));
+    dt2.textContent=a.toDateString();
+    a=(new Date(data.daily[3].dt*1000-(data.timezone_offset*1000)));
+    dt3.textContent=a.toDateString();
+    a=(new Date(data.daily[4].dt*1000-(data.timezone_offset*1000)));
+    dt4.textContent=a.toDateString();
+    a=(new Date(data.daily[5].dt*1000-(data.timezone_offset*1000)));
+    dt5.textContent=a.toDateString();
+    a=(new Date(data.daily[6].dt*1000-(data.timezone_offset*1000)));
+    dt6.textContent=a.toDateString();
+    a=(new Date(data.daily[7].dt*1000-(data.timezone_offset*1000)));
+    dt7.textContent=a.toDateString();
+    
+    mx1.textContent=data.daily[1].temp.max;
+    mx2.textContent=data.daily[2].temp.max;
+    mx3.textContent=data.daily[3].temp.max;
+    mx4.textContent=data.daily[4].temp.max;
+    mx5.textContent=data.daily[5].temp.max;
+    mx6.textContent=data.daily[6].temp.max;
+    mx7.textContent=data.daily[7].temp.max;
+
+    mn1.textContent=data.daily[1].temp.min;
+    mn2.textContent=data.daily[2].temp.min;
+    mn3.textContent=data.daily[3].temp.min;
+    mn4.textContent=data.daily[4].temp.min;
+    mn5.textContent=data.daily[5].temp.min;
+    mn6.textContent=data.daily[6].temp.min;
+    mn7.textContent=data.daily[7].temp.min;
+
+    hd1.textContent=data.daily[1].humidity+"%";
+    hd2.textContent=data.daily[2].humidity+"%";
+    hd3.textContent=data.daily[3].humidity+"%";
+    hd4.textContent=data.daily[4].humidity+"%";
+    hd5.textContent=data.daily[5].humidity+"%";
+    hd6.textContent=data.daily[6].humidity+"%";
+    hd7.textContent=data.daily[7].humidity+"%";
+
+    ds1.textContent=data.daily[1].weather[0].description.toUpperCase();
+    ds2.textContent=data.daily[2].weather[0].description.toUpperCase();
+    ds3.textContent=data.daily[3].weather[0].description.toUpperCase();
+    ds4.textContent=data.daily[4].weather[0].description.toUpperCase();
+    ds5.textContent=data.daily[5].weather[0].description.toUpperCase();
+    ds6.textContent=data.daily[6].weather[0].description.toUpperCase();
+    ds7.textContent=data.daily[7].weather[0].description.toUpperCase();
+
+      
+
+    iconid=data.current.weather[0].icon;
+    document.getElementById("imgs").src="https://openweathermap.org/img/wn/"+iconid+"@2x.png";
+    
+  
 
 
-document.getElementById('btn').addEventListener("click",function(){
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?lat='+lat+'&lon='+lon+'&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
+    .then(response =>response.json())
+    .then(data =>{console.log(data)
+        var ct=data.name;city.textContent=ct;
+        temp.textContent=data.main.temp+" °C"})
+})
+}
+})  
+
+   document.getElementById('btn').addEventListener("click",function(){
    fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputValue.value+'&units=metric&appid=20bb0e7b12adfffa0453590bfee12276')
    .then(response =>response.json())
    .then(data =>{console.log(data)
@@ -199,7 +287,8 @@ document.getElementById('btn').addEventListener("click",function(){
         ds7.textContent=data.daily[7].weather[0].description.toUpperCase();
 
         iconid=data.current.weather[0].icon;
-        document.getElementById("imgs").src="http://openweathermap.org/img/wn/"+iconid+"@2x.png";
+        document.getElementById("imgs").src="https://openweathermap.org/img/wn/"+iconid+"@2x.png";
 
 })
-})})
+})
+})
